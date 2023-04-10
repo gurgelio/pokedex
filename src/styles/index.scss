@@ -1,0 +1,20 @@
+.pokemon-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 256px);
+  column-gap: 1em;
+  justify-content: space-between;
+  text-align: center;
+
+  article {
+    img {
+      transform: scale(calc(1.45));
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pokemon-list {
+    grid-template-columns: 1fr;
+  }
+}
