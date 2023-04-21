@@ -16,8 +16,14 @@ dependencies:
   swr:
     specifier: 2.1.3
     version: 2.1.3(react@18.2.0)
+  wouter:
+    specifier: ^2.10.1
+    version: 2.10.1(react@18.2.0)
 
 devDependencies:
+  '@types/node':
+    specifier: ^18.15.13
+    version: 18.15.13
   '@types/react':
     specifier: ^18.0.28
     version: 18.0.28
@@ -42,12 +48,18 @@ devDependencies:
   eslint-plugin-n:
     specifier: ^15.0.0
     version: 15.7.0(eslint@8.38.0)
+  eslint-plugin-prettier:
+    specifier: ^4.2.1
+    version: 4.2.1(eslint@8.38.0)(prettier@2.8.7)
   eslint-plugin-promise:
     specifier: ^6.0.0
     version: 6.1.1(eslint@8.38.0)
   eslint-plugin-react:
     specifier: ^7.32.2
     version: 7.32.2(eslint@8.38.0)
+  prettier:
+    specifier: ^2.8.7
+    version: 2.8.7
   sass:
     specifier: ^1.61.0
     version: 1.61.0
@@ -56,7 +68,7 @@ devDependencies:
     version: 4.9.3
   vite:
     specifier: ^4.2.0
-    version: 4.2.0(sass@1.61.0)
+    version: 4.2.0(@types/node@18.15.13)(sass@1.61.0)
 
 packages:
 
@@ -460,6 +472,10 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
+  /@types/node@18.15.13:
+    resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
+    dev: true
+
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
@@ -622,7 +638,7 @@ packages:
       vite: ^4.0.0
     dependencies:
       '@swc/core': 1.3.49
-      vite: 4.2.0(sass@1.61.0)
+      vite: 4.2.0(@types/node@18.15.13)(sass@1.61.0)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -1141,6 +1157,22 @@ packages:
       semver: 7.3.8
     dev: true
 
+  /eslint-plugin-prettier@4.2.1(eslint@8.38.0)(prettier@2.8.7):
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.38.0
+      prettier: 2.8.7
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
   /eslint-plugin-promise@6.1.1(eslint@8.38.0):
     resolution: {integrity: sha512-tjqWDwVZQo7UIPMeDReOpUgHCmCiH+ePnVT+5zVapL0uuHnegBUs2smM13CzOs2Xb5+MHMRFTs9v24yjba4Oig==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1311,6 +1343,10 @@ packages:
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+    dev: true
+
+  /fast-diff@1.2.0:
+    resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
     dev: true
 
   /fast-glob@3.2.12:
@@ -1990,6 +2026,19 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /prettier-linter-helpers@1.0.0:
+    resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      fast-diff: 1.2.0
+    dev: true
+
+  /prettier@2.8.7:
+    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
@@ -2328,7 +2377,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /vite@4.2.0(sass@1.61.0):
+  /vite@4.2.0(@types/node@18.15.13)(sass@1.61.0):
     resolution: {integrity: sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2353,6 +2402,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.13
       esbuild: 0.17.16
       postcss: 8.4.21
       resolve: 1.22.2
@@ -2396,6 +2446,15 @@ packages:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /wouter@2.10.1(react@18.2.0):
+    resolution: {integrity: sha512-jGwP371qcA68OBGsfVw2HdSe2/Dv69Zaj4cckEXxD92GH4sT5CAwLXb5ljmoVrmdkeBGLpSesvXDcN+2tO1k3A==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
