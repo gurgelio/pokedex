@@ -1,6 +1,5 @@
 
 import useSwr from 'swr'
-import axios from 'axios'
 import { type PropsWithoutRef } from 'react'
 
 interface ShowProps {
@@ -8,9 +7,8 @@ interface ShowProps {
 }
 
 function Show({ pokemonId }: PropsWithoutRef<ShowProps>) {
-  const { data, error, isLoading } = useSwr(`api/v2/pokemon-species/${pokemonId}`, async url => {
-    const response = await axios.get(`https://pokeapi.co/${url}`)
-    return response.data
+  const { data, error, isLoading } = useSwr(`api/v2/pokemon/${pokemonId}`, async url => {
+    return await fetch(`https://pokeapi.co/${url}`).then(async res => await res.json()) as Pokemon
   })
 
   if (error != null) return <div>error</div>

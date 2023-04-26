@@ -4,15 +4,17 @@ import { Link } from 'wouter'
 interface PokemonCardProps {
   id: number
   name: string
+  image: string
 }
 
-export default function PokemonCard({ id, name }: PropsWithoutRef<PokemonCardProps>) {
+export default function PokemonCard({ id, name, image }: PropsWithoutRef<PokemonCardProps>) {
   return <article>
       <Link href={`/pokemon/${id}`}>
         <img
           width="200"
           height="200"
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+          loading="lazy"
+          src={image}
         />
       </Link>
       <footer className='text-center'>
