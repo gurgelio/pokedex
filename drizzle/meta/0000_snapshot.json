@@ -1,0 +1,152 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "pokedex_prose": {
+      "name": "pokedex_prose",
+      "columns": {
+        "pokedex_id": {
+          "autoincrement": false,
+          "name": "pokedex_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "local_language_id": {
+          "autoincrement": false,
+          "name": "local_language_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "text(79)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "autoincrement": false,
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "pokedex_prose_local_language_id_pokedex_id_pk": {
+          "columns": [
+            "local_language_id",
+            "pokedex_id"
+          ],
+          "name": "pokedex_prose_local_language_id_pokedex_id_pk"
+        }
+      },
+      "indexes": {
+        "ix_pokedex_prose_name": {
+          "name": "ix_pokedex_prose_name",
+          "columns": [
+            "name"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "pokedex_prose_local_language_id_languages_id_fk": {
+          "name": "pokedex_prose_local_language_id_languages_id_fk",
+          "tableFrom": "pokedex_prose",
+          "tableTo": "languages",
+          "columnsFrom": [
+            "local_language_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "pokedex_prose_pokedex_id_pokedexes_id_fk": {
+          "name": "pokedex_prose_pokedex_id_pokedexes_id_fk",
+          "tableFrom": "pokedex_prose",
+          "tableTo": "pokedexes",
+          "columnsFrom": [
+            "pokedex_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "pokedex_version_groups": {
+      "name": "pokedex_version_groups",
+      "columns": {
+        "pokedex_id": {
+          "autoincrement": false,
+          "name": "pokedex_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "version_group_id": {
+          "autoincrement": false,
+          "name": "version_group_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {
+        "pokedex_version_groups_pokedex_id_version_group_id_pk": {
+          "columns": [
+            "pokedex_id",
+            "version_group_id"
+          ],
+          "name": "pokedex_version_groups_pokedex_id_version_group_id_pk"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "pokedex_version_groups_version_group_id_version_groups_id_fk": {
+          "name": "pokedex_version_groups_version_group_id_version_groups_id_fk",
+          "tableFrom": "pokedex_version_groups",
+          "tableTo": "version_groups",
+          "columnsFrom": [
+            "version_group_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "pokedex_version_groups_pokedex_id_pokedexes_id_fk": {
+          "name": "pokedex_version_groups_pokedex_id_pokedexes_id_fk",
+          "tableFrom": "pokedex_version_groups",
+          "tableTo": "pokedexes",
+          "columnsFrom": [
+            "pokedex_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
