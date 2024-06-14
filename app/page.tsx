@@ -1,5 +1,6 @@
 import db from "prisma/db";
-import Image from "next/image";
+import PokemonCard from "components/PokemonCard";
+import PokemonList from "components/PokemonList";
 
 export default async function Home() {
 	const pokemonList = (
@@ -7,10 +8,9 @@ export default async function Home() {
 	).sort((a, b) => a.id - b.id);
 
 	return (
-		<main>
-			{pokemonList.map((pokemon) => (
-				<li key={pokemon.id}>{pokemon.identifier}</li>
-			))}
+		<main className="container flex flex-col items-center">
+			<h1 className="text-4xl text-center my-8 uppercase">Pokédex</h1>
+			<PokemonList pokemonList={pokemonList} />
 		</main>
 	);
 }
